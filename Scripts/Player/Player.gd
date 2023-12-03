@@ -6,12 +6,18 @@ class_name Player
 
 @export var speed := 100.0
 @export var jump_height := -400.0
+@export var attacking = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
 	GameManager.player = self
+
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		attack()
+	
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("right"):
@@ -53,17 +59,28 @@ func _physics_process(delta):
 #		gravity = 10
 		die()
 	
+func attack():
+	var overlaping_objects = $AttackArea.get_overlapping_areas()
+	
+	for area in overlaping_objects:
+		var parrent = area.get_parent()
+		parrent.queue_free()
+	
+	attacking = true
+	animation.play("Attack")
+	
 func update_animation():
-	if velocity.x != 0:
-		animation.play("Run")
-	else:
-		animation.play("Idle")
-		
-	if velocity.y < 0:
-		animation.play("jump")
-		
-	if velocity.y > 0:
-		animation.play("Fall")
+	if !attacking:
+		if velocity.x != 0:
+			animation.play("Run")
+		else:
+			animation.play("Idle")
+			
+		if velocity.y < 0:
+			animation.play("jump")
+			
+		if velocity.y > 0:
+			animation.play("Fall")
 		
 func drown():
 	GameManager.drowning()

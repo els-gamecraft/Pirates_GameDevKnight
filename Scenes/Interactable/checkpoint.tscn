@@ -1,0 +1,57 @@
+[gd_scene load_steps=14 format=3 uid="uid://ddyvx3qp0d1ph"]
+
+[ext_resource type="Texture2D" uid="uid://dfxcg73wl81l0" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 08.png" id="1_gf2xb"]
+[ext_resource type="Script" path="res://Scripts/Interactable/checkpoint.gd" id="1_ke0gt"]
+[ext_resource type="Texture2D" uid="uid://ci2nbaxxq0gso" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 01.png" id="2_s4kxt"]
+[ext_resource type="Texture2D" uid="uid://bqmldeoyyqgn7" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 02.png" id="3_r8stw"]
+[ext_resource type="Texture2D" uid="uid://dwvj5dvc215sp" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 03.png" id="4_laqdw"]
+[ext_resource type="Texture2D" uid="uid://dlxmfjxmglro3" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 04.png" id="5_kuf0f"]
+[ext_resource type="Texture2D" uid="uid://ct2s2ld1b6k1s" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 05.png" id="6_vv4ev"]
+[ext_resource type="Texture2D" uid="uid://bemuxdghwacdt" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 06.png" id="7_bsyru"]
+[ext_resource type="Texture2D" uid="uid://bg8gqaj3rf08" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 07.png" id="8_7mek7"]
+[ext_resource type="Texture2D" uid="uid://lgo0mmocnt8h" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 09.png" id="9_i4sai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uquts"]
+size = Vector2(41, 93)
+
+[sub_resource type="Animation" id="Animation_dq7ji"]
+resource_name = "Activated"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_s4kxt"), ExtResource("3_r8stw"), ExtResource("4_laqdw"), ExtResource("5_kuf0f"), ExtResource("6_vv4ev"), ExtResource("7_bsyru"), ExtResource("8_7mek7"), ExtResource("1_gf2xb"), ExtResource("9_i4sai")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sg1iy"]
+_data = {
+"Activated": SubResource("Animation_dq7ji")
+}
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_ke0gt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gf2xb")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_uquts")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sg1iy")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

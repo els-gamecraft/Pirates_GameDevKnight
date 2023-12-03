@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -8,6 +9,9 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+func _ready():
+	GameManager.player = self
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("right"):
@@ -41,6 +45,13 @@ func _physics_process(delta):
 	update_animation()
 	move_and_slide()
 	
+#	if position.y >= 387:
+#		gravity = 3
+##		die()
+	
+	if position.y >= 800:
+#		gravity = 10
+		die()
 	
 func update_animation():
 	if velocity.x != 0:
@@ -53,11 +64,11 @@ func update_animation():
 		
 	if velocity.y > 0:
 		animation.play("Fall")
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#pass # Replace with function body.
+		
+func drown():
+	GameManager.drowning()
 
+func die():
+#	gravity = 980
+	GameManager.respawn_player()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass

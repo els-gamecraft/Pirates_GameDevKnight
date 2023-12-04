@@ -1,0 +1,149 @@
+[gd_scene load_steps=31 format=3 uid="uid://nlgyvyn2otw6"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Sabertooth.gd" id="1_6be7k"]
+[ext_resource type="Texture2D" uid="uid://dbap8w7lnub8b" path="res://Treasure Hunters/EpisodeSeven/09-Dead Hit/Dead Hit 04.png" id="1_dfgea"]
+[ext_resource type="Texture2D" uid="uid://bamwhpk44bxvu" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 01.png" id="2_5oa4i"]
+[ext_resource type="Texture2D" uid="uid://cfpihjoiwa0tx" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 02.png" id="3_d5ixw"]
+[ext_resource type="Texture2D" uid="uid://mjih8apbvr04" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 03.png" id="4_7fvky"]
+[ext_resource type="Texture2D" uid="uid://dp286yq0mh3bh" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 04.png" id="5_04xb1"]
+[ext_resource type="Texture2D" uid="uid://b7gpn14tudsin" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 05.png" id="6_tly8k"]
+[ext_resource type="Texture2D" uid="uid://c2rt0xevxleuu" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 06.png" id="7_giea2"]
+[ext_resource type="Texture2D" uid="uid://ckruo3o5uktru" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 07.png" id="8_83asf"]
+[ext_resource type="Texture2D" uid="uid://byp7p0vm0v7sf" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 08.png" id="9_v2spf"]
+[ext_resource type="Texture2D" uid="uid://m4ch3h02ne3s" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 01.png" id="10_ypdjq"]
+[ext_resource type="Texture2D" uid="uid://b1ccorl52vv8t" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 02.png" id="11_xvoje"]
+[ext_resource type="Texture2D" uid="uid://b7ppj0vhypk8s" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 03.png" id="12_ocilc"]
+[ext_resource type="Texture2D" uid="uid://bt7507404smhf" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 04.png" id="13_31hy8"]
+[ext_resource type="Texture2D" uid="uid://bpafqb8cl7a0v" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 05.png" id="14_8qo5h"]
+[ext_resource type="Texture2D" uid="uid://5nj4cy1554l2" path="res://Treasure Hunters/EpisodeSeven/02-Run/Run 06.png" id="15_38k8w"]
+[ext_resource type="Texture2D" uid="uid://b3ex6yfjn4d1d" path="res://Treasure Hunters/EpisodeSeven/08-Hit/Hit 01.png" id="16_45o6g"]
+[ext_resource type="Texture2D" uid="uid://bfby3ibuw7e7x" path="res://Treasure Hunters/EpisodeSeven/08-Hit/Hit 02.png" id="17_ut271"]
+[ext_resource type="Texture2D" uid="uid://b8t13hrl42mds" path="res://Treasure Hunters/EpisodeSeven/08-Hit/Hit 03.png" id="18_ngicw"]
+[ext_resource type="Texture2D" uid="uid://cfops4ivsynbo" path="res://Treasure Hunters/EpisodeSeven/08-Hit/Hit 04.png" id="19_twt7j"]
+[ext_resource type="Texture2D" uid="uid://d0pf6du1lqaji" path="res://Treasure Hunters/EpisodeSeven/09-Dead Hit/Dead Hit 01.png" id="20_sxlln"]
+[ext_resource type="Texture2D" uid="uid://cfxswtsdpca22" path="res://Treasure Hunters/EpisodeSeven/09-Dead Hit/Dead Hit 02.png" id="21_thbnw"]
+[ext_resource type="Texture2D" uid="uid://bn512rou0vs1s" path="res://Treasure Hunters/EpisodeSeven/09-Dead Hit/Dead Hit 03.png" id="22_padhb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hu45"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvvaq"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_kwux3"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_5oa4i"), ExtResource("3_d5ixw"), ExtResource("4_7fvky"), ExtResource("5_04xb1"), ExtResource("6_tly8k"), ExtResource("7_giea2"), ExtResource("8_83asf"), ExtResource("9_v2spf")]
+}
+
+[sub_resource type="Animation" id="Animation_2kchk"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_ypdjq"), ExtResource("11_xvoje"), ExtResource("12_ocilc"), ExtResource("13_31hy8"), ExtResource("14_8qo5h"), ExtResource("15_38k8w")]
+}
+
+[sub_resource type="Animation" id="Animation_vhas5"]
+resource_name = "Hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_45o6g"), ExtResource("17_ut271"), ExtResource("18_ngicw"), ExtResource("19_twt7j")]
+}
+
+[sub_resource type="Animation" id="Animation_46ftg"]
+resource_name = "Dead_Hit"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_sxlln"), ExtResource("21_thbnw"), ExtResource("22_padhb"), ExtResource("1_dfgea"), ExtResource("20_sxlln"), ExtResource("21_thbnw"), ExtResource("22_padhb"), ExtResource("1_dfgea")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wudgm"]
+_data = {
+"Dead_Hit": SubResource("Animation_46ftg"),
+"Hit": SubResource("Animation_vhas5"),
+"Idle": SubResource("Animation_kwux3"),
+"Run": SubResource("Animation_2kchk")
+}
+
+[node name="SaberTooth" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+script = ExtResource("1_6be7k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dfgea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_1hu45")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_xvvaq")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-11, 0)
+target_position = Vector2(0, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wudgm")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

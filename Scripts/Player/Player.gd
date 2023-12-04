@@ -23,10 +23,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("right"):
 		#animation.play("Run")
 		sprite.scale.x = abs(sprite.scale.x) * 1
+		$AttackArea.scale.x = abs($AttackArea.scale.x) * 1
 	
 	if Input.is_action_just_pressed("left"):
 		#animation.play("Run")
 		sprite.scale.x = abs(sprite.scale.x) * -1
+		$AttackArea.scale.x = abs($AttackArea.scale.x) * -1
 	
 	#Add the gravity.
 	if not is_on_floor():
@@ -62,9 +64,13 @@ func _physics_process(delta):
 func attack():
 	var overlaping_objects = $AttackArea.get_overlapping_areas()
 	
+#	for area in overlaping_objects:
+#		var parrent = area.get_parent()
+#		parrent.queue_free()
+	
 	for area in overlaping_objects:
-		var parrent = area.get_parent()
-		parrent.queue_free()
+		if area.get_parent().is_in_group("Enemies"):
+			area.get_parent().die()
 	
 	attacking = true
 	animation.play("Attack")
@@ -86,6 +92,7 @@ func drown():
 	GameManager.drowning()
 
 func die():
+	# ADD die animation!!!
 #	gravity = 980
 	GameManager.respawn_player()
 

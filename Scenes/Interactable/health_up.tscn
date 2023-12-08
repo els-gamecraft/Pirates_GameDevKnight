@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://4shysjv4hygl"]
+
+[ext_resource type="Texture2D" uid="uid://ckp6ee6jdxp7l" path="res://Treasure Hunters/EpisodeNine/Heart.png" id="1_88dhv"]
+[ext_resource type="Script" path="res://Scripts/Interactable/health_up.gd" id="1_prdps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64anm"]
+size = Vector2(16, 14)
+
+[node name="HealthUp" type="Node2D"]
+script = ExtResource("1_prdps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_88dhv")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_64anm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

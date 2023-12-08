@@ -1,0 +1,151 @@
+[gd_scene load_steps=32 format=3 uid="uid://bn456u5amoufn"]
+
+[ext_resource type="Texture2D" uid="uid://cmp7150mmy6x2" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_1v8bf"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Craby.gd" id="1_iloej"]
+[ext_resource type="Texture2D" uid="uid://b5dnvfys14a05" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 04.png" id="2_cnj7b"]
+[ext_resource type="Texture2D" uid="uid://cksqjtr57puga" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="2_teobs"]
+[ext_resource type="Texture2D" uid="uid://b2xutj0ac75qt" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="3_xi14c"]
+[ext_resource type="Texture2D" uid="uid://ceq6a7w16a761" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="4_5in4i"]
+[ext_resource type="Texture2D" uid="uid://cl08hhpsli6c" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="5_a7ylj"]
+[ext_resource type="Texture2D" uid="uid://bj5aacfm57lak" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="6_ugnt6"]
+[ext_resource type="Texture2D" uid="uid://be7vom1030qn6" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="7_f0omj"]
+[ext_resource type="Texture2D" uid="uid://bkii7tfotgs2g" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 08.png" id="8_b5ad1"]
+[ext_resource type="Texture2D" uid="uid://b5byd4tbcpi7n" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 09.png" id="9_ueqvo"]
+[ext_resource type="Texture2D" uid="uid://b7wsskbxjwh3q" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 01.png" id="10_oxnix"]
+[ext_resource type="Texture2D" uid="uid://bst6lhfcqku4h" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 02.png" id="11_54rgh"]
+[ext_resource type="Texture2D" uid="uid://836ncuhm2fcq" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 03.png" id="12_tihbm"]
+[ext_resource type="Texture2D" uid="uid://qxs5iiws6cwl" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="13_8grvi"]
+[ext_resource type="Texture2D" uid="uid://ck5hcufq6ouvx" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="14_jjnfl"]
+[ext_resource type="Texture2D" uid="uid://cplgjigmp1dix" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="15_yjqxb"]
+[ext_resource type="Texture2D" uid="uid://cqf1j65fvok2u" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="16_afgon"]
+[ext_resource type="Texture2D" uid="uid://cl6kfduiykwiw" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="17_81s33"]
+[ext_resource type="Texture2D" uid="uid://f55cswtkg05m" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="18_bbnhm"]
+[ext_resource type="Texture2D" uid="uid://11l030cpii30" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="19_inm8x"]
+[ext_resource type="Texture2D" uid="uid://6mbs5a1hrmyb" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 01.png" id="22_e2hnq"]
+[ext_resource type="Texture2D" uid="uid://besrgorotb4i3" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 02.png" id="23_ae8im"]
+[ext_resource type="Texture2D" uid="uid://cy70uo5ljaler" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 03.png" id="24_0jjep"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ydb5"]
+radius = 8.99867
+height = 21.9968
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rqrf"]
+radius = 7.99986
+height = 19.9996
+
+[sub_resource type="Animation" id="Animation_o2kdn"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_afgon"), ExtResource("17_81s33"), ExtResource("18_bbnhm"), ExtResource("19_inm8x")]
+}
+
+[sub_resource type="Animation" id="Animation_y4egn"]
+resource_name = "die"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("22_e2hnq"), ExtResource("23_ae8im"), ExtResource("24_0jjep"), ExtResource("2_cnj7b"), ExtResource("23_ae8im"), ExtResource("24_0jjep"), ExtResource("2_cnj7b")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_onsmy"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_1v8bf"), ExtResource("2_teobs"), ExtResource("3_xi14c"), ExtResource("4_5in4i"), ExtResource("5_a7ylj"), ExtResource("6_ugnt6"), ExtResource("7_f0omj"), ExtResource("8_b5ad1"), ExtResource("9_ueqvo")]
+}
+
+[sub_resource type="Animation" id="Animation_t0l3q"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_oxnix"), ExtResource("11_54rgh"), ExtResource("12_tihbm"), ExtResource("13_8grvi"), ExtResource("14_jjnfl"), ExtResource("15_yjqxb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5iqgy"]
+_data = {
+"attack": SubResource("Animation_o2kdn"),
+"die": SubResource("Animation_y4egn"),
+"idle": SubResource("Animation_onsmy"),
+"run": SubResource("Animation_t0l3q")
+}
+
+[node name="Craby" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+script = ExtResource("1_iloej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cnj7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.72529e-09, 4)
+rotation = -1.58797
+shape = SubResource("CapsuleShape2D_0ydb5")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1.19209e-07, 4)
+rotation = 1.57677
+shape = SubResource("CapsuleShape2D_6rqrf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-14, 0)
+target_position = Vector2(0, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5iqgy")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

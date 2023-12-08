@@ -10,8 +10,12 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var max_health = 2
+var health = 0
+var can_take_damage = true
 
 func _ready():
+	health = max_health
 	GameManager.player = self
 
 func _process(delta):
@@ -90,6 +94,20 @@ func update_animation():
 		
 func drown():
 	GameManager.drowning()
+
+func take_damage(damage_amount: int):
+	if can_take_damage:
+		iframes()
+		
+		health -= damage_amount
+		
+		if health <= 0:
+			die()
+			
+func iframes():
+	can_take_damage = false
+	await get_tree().create_timer(1).timeout
+	can_take_damage = true
 
 func die():
 	# ADD die animation!!!

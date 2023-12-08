@@ -125,7 +125,7 @@ collision_layer = 2
 script = ExtResource("1_6be7k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dfgea")
+texture = ExtResource("20_sxlln")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

@@ -74,7 +74,7 @@ func attack():
 	
 	for area in overlaping_objects:
 		if area.get_parent().is_in_group("Enemies"):
-			area.get_parent().die()
+			area.get_parent().take_damage(1)
 	
 	attacking = true
 	animation.play("Attack")

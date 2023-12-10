@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bgtu12thttw7a" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Invisible_platform.png" id="2_ekmr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6awr"]
-size = Vector2(18, 17)
+size = Vector2(24, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aiy7"]
-size = Vector2(22, 22)
+size = Vector2(30, 28)
 
 [sub_resource type="Animation" id="Animation_ol5r7"]
 resource_name = "FadeIn"
@@ -35,11 +35,11 @@ script = ExtResource("1_qsomr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.570002, 0.530001)
+position = Vector2(2.98023e-08, 1.19209e-07)
+scale = Vector2(0.797502, 0.6975)
 texture = ExtResource("2_ekmr5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_b6awr")
 
 [node name="Area2D" type="Area2D" parent="."]

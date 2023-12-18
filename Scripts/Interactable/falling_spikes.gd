@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var speed = 190.0
-var current_speed = 0.0
+@export var speed: float = 190.0
+var current_speed: float = 0.0
 
 @onready var spawn_pos = global_position
 

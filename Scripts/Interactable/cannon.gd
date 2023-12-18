@@ -1,16 +1,19 @@
 extends StaticBody2D
+class_name cannon
 
 var canon_ball = load("res://Scenes/Interactable/canon_ball.tscn")
 var debris = load("res://Scenes/Interactable/cannon_debris.tscn")
 
+@export var score = 60
+
 @export var shooting: bool
-var firerate :float = randf_range(1.5, 2.5)
+var firerate: float = randf_range(1.5, 2.5)
 
 @onready var animation_player = $AnimationPlayer
 @onready var firepoint = $FirePoint
 
-var max_health :int = 3
-var health
+var max_health: int = 3
+var health: int
 
 func _ready():
 	health = max_health
@@ -31,12 +34,15 @@ func fire():
 func take_damage(damage_amount):
 	health -= damage_amount
 	
+	get_node("Healthbar").update_healthbar(health, max_health)
+	
 	animation_player.play("Hit")
 	
 	if health <= 0:
 		die()
 		
 func die():
+	GameManager.score += score
 	var spawned_debris = debris.instantiate()
 	spawned_debris.global_position = position
 	spawned_debris.scale.x = scale.x

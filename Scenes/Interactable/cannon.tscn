@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsuoom5r2ioop"]
+[gd_scene load_steps=19 format=3 uid="uid://bsuoom5r2ioop"]
 
 [ext_resource type="Texture2D" uid="uid://cdsqpltg03th" path="res://Treasure Hunters/EpisodeEleven/Cannon/Cannon Idle/1.png" id="1_1kilb"]
 [ext_resource type="Script" path="res://Scripts/Interactable/cannon.gd" id="1_db2bh"]
 [ext_resource type="Texture2D" uid="uid://1a7yc5ak4xvy" path="res://Treasure Hunters/EpisodeEleven/Cannon/Cannon Fire/4.png" id="1_vmb8e"]
+[ext_resource type="PackedScene" uid="uid://c17djgffky2du" path="res://Scenes/UI/healthbar.tscn" id="2_p1u15"]
 [ext_resource type="Texture2D" uid="uid://c2wo3gvmudeff" path="res://Treasure Hunters/EpisodeEleven/Cannon/Cannon Fire/1.png" id="2_uw4dn"]
 [ext_resource type="Texture2D" uid="uid://b5k66owmuegou" path="res://Treasure Hunters/EpisodeEleven/Cannon/Cannon Fire/2.png" id="4_ukbvs"]
 [ext_resource type="Texture2D" uid="uid://rmqbbagkbi3u" path="res://Treasure Hunters/EpisodeEleven/Cannon/Cannon Fire/3.png" id="5_c7d5a"]
@@ -86,6 +87,12 @@ _data = {
 [node name="Cannon" type="StaticBody2D" groups=["Enemies"]]
 script = ExtResource("1_db2bh")
 shooting = true
+
+[node name="Healthbar" parent="." instance=ExtResource("2_p1u15")]
+offset_left = -0.140306
+offset_top = -15.9249
+offset_right = -0.140306
+offset_bottom = -15.9249
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_83m7b")

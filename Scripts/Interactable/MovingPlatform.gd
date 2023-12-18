@@ -1,6 +1,6 @@
 extends Node2D
 
-var moving = false
+var moving: bool = false
 
 
 func _on_area_2d_area_entered(area):

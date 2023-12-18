@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://kc4s26c7xi0b"]
+[gd_scene load_steps=33 format=3 uid="uid://kc4s26c7xi0b"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_h87x8"]
 [ext_resource type="Texture2D" uid="uid://dt50mg8wnph7k" path="res://Treasure Hunters/EpisodeSix/16-Attack 2/Attack 2 01.png" id="2_3iqye"]
+[ext_resource type="Texture2D" uid="uid://qexgtg12b1rc" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 04.png" id="2_jruwo"]
 [ext_resource type="Texture2D" uid="uid://dd6b6occxfqw5" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" id="2_sgkee"]
 [ext_resource type="Texture2D" uid="uid://c3fak7cxu04nc" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="3_rhtnj"]
 [ext_resource type="Texture2D" uid="uid://b38u03ttl12w6" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="4_3d1wu"]
@@ -18,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://6xnc6ipe8nho" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 03.png" id="15_15lmn"]
 [ext_resource type="Texture2D" uid="uid://ddg13l44xbso0" path="res://Treasure Hunters/EpisodeSix/16-Attack 2/Attack 2 02.png" id="17_dcmrk"]
 [ext_resource type="Texture2D" uid="uid://cooa7vy78hdol" path="res://Treasure Hunters/EpisodeSix/16-Attack 2/Attack 2 03.png" id="18_tq155"]
+[ext_resource type="Texture2D" uid="uid://cdg8u5mruhvt1" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 01.png" id="20_immvf"]
+[ext_resource type="Texture2D" uid="uid://cia0ocs05nena" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 02.png" id="21_8ca8e"]
+[ext_resource type="Texture2D" uid="uid://dhjuxx0e13k2v" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 03.png" id="22_47dlh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ec2j7"]
 radius = 9.0
@@ -74,6 +78,34 @@ tracks/0/keys = {
 "values": [ExtResource("6_j3hoo")]
 }
 
+[sub_resource type="Animation" id="Animation_empn5"]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_immvf"), ExtResource("20_immvf"), ExtResource("21_8ca8e"), ExtResource("22_47dlh"), ExtResource("2_jruwo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_4xc2a"]
 resource_name = "Idle"
 length = 0.5
@@ -128,6 +160,7 @@ tracks/0/keys = {
 _data = {
 "Attack": SubResource("Animation_uenqb"),
 "Fall": SubResource("Animation_uupur"),
+"Hit": SubResource("Animation_empn5"),
 "Idle": SubResource("Animation_4xc2a"),
 "Run": SubResource("Animation_67hdn"),
 "jump": SubResource("Animation_vobqt")
@@ -145,7 +178,7 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_ec2j7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3iqye")
+texture = ExtResource("20_immvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

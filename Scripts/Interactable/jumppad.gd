@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var force = -600.0
+@export var force: float = -600.0
 
 
 func _on_area_2d_area_entered(area):

@@ -1,9 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://bn456u5amoufn"]
+[gd_scene load_steps=38 format=3 uid="uid://bn456u5amoufn"]
 
 [ext_resource type="Texture2D" uid="uid://cmp7150mmy6x2" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_1v8bf"]
 [ext_resource type="Script" path="res://Scripts/Enemies/Craby.gd" id="1_iloej"]
 [ext_resource type="Texture2D" uid="uid://b5dnvfys14a05" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 04.png" id="2_cnj7b"]
 [ext_resource type="Texture2D" uid="uid://cksqjtr57puga" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="2_teobs"]
+[ext_resource type="PackedScene" uid="uid://c17djgffky2du" path="res://Scenes/UI/healthbar.tscn" id="2_y7ic3"]
+[ext_resource type="Texture2D" uid="uid://c3rbe8ll6sbic" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 04.png" id="3_rt0fw"]
 [ext_resource type="Texture2D" uid="uid://b2xutj0ac75qt" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="3_xi14c"]
 [ext_resource type="Texture2D" uid="uid://ceq6a7w16a761" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="4_5in4i"]
 [ext_resource type="Texture2D" uid="uid://cl08hhpsli6c" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="5_a7ylj"]
@@ -24,6 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://6mbs5a1hrmyb" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 01.png" id="22_e2hnq"]
 [ext_resource type="Texture2D" uid="uid://besrgorotb4i3" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 02.png" id="23_ae8im"]
 [ext_resource type="Texture2D" uid="uid://cy70uo5ljaler" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 03.png" id="24_0jjep"]
+[ext_resource type="Texture2D" uid="uid://botceqj1euqlx" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 01.png" id="27_gubh7"]
+[ext_resource type="Texture2D" uid="uid://c8314ge6lwmo5" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 02.png" id="28_ryrsa"]
+[ext_resource type="Texture2D" uid="uid://k6vmyxvs7b4h" path="res://Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 03.png" id="29_ac2yg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ydb5"]
 radius = 8.99867
@@ -32,6 +37,39 @@ height = 21.9968
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rqrf"]
 radius = 7.99986
 height = 19.9996
+
+[sub_resource type="Animation" id="Animation_u2aob"]
+resource_name = "Hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("27_gubh7"), ExtResource("28_ryrsa"), ExtResource("29_ac2yg"), ExtResource("3_rt0fw")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"get_hit"
+}, {
+"args": [],
+"method": &"get_hit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_o2kdn"]
 resource_name = "attack"
@@ -114,6 +152,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5iqgy"]
 _data = {
+"Hit": SubResource("Animation_u2aob"),
 "attack": SubResource("Animation_o2kdn"),
 "die": SubResource("Animation_y4egn"),
 "idle": SubResource("Animation_onsmy"),
@@ -124,8 +163,12 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_iloej")
 
+[node name="Healthbar" parent="." instance=ExtResource("2_y7ic3")]
+offset_top = -16.0
+offset_bottom = -16.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cnj7b")
+texture = ExtResource("27_gubh7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.72529e-09, 4)

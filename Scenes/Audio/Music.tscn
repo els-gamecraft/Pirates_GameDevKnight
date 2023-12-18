@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://erioiewlyprf"]
+
+[ext_resource type="AudioStream" uid="uid://6i3dalq7pbpl" path="res://Audio/Music/childish-prank-21177.wav" id="1_pb800"]
+
+[node name="Node" type="Node"]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_pb800")
+volume_db = -10.0
+autoplay = true

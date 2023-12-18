@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://nlgyvyn2otw6"]
+[gd_scene load_steps=32 format=3 uid="uid://nlgyvyn2otw6"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Sabertooth.gd" id="1_6be7k"]
 [ext_resource type="Texture2D" uid="uid://dbap8w7lnub8b" path="res://Treasure Hunters/EpisodeSeven/09-Dead Hit/Dead Hit 04.png" id="1_dfgea"]
 [ext_resource type="Texture2D" uid="uid://bamwhpk44bxvu" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 01.png" id="2_5oa4i"]
+[ext_resource type="PackedScene" uid="uid://c17djgffky2du" path="res://Scenes/UI/healthbar.tscn" id="2_6qe2b"]
 [ext_resource type="Texture2D" uid="uid://cfpihjoiwa0tx" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 02.png" id="3_d5ixw"]
 [ext_resource type="Texture2D" uid="uid://mjih8apbvr04" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 03.png" id="4_7fvky"]
 [ext_resource type="Texture2D" uid="uid://dp286yq0mh3bh" path="res://Treasure Hunters/EpisodeSeven/01-Idle/Idle 04.png" id="5_04xb1"]
@@ -77,6 +78,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("16_45o6g"), ExtResource("17_ut271"), ExtResource("18_ngicw"), ExtResource("19_twt7j")]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"get_hit"
+}, {
+"args": [],
+"method": &"get_hit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_kwux3"]
 resource_name = "Idle"
@@ -124,8 +142,12 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_6be7k")
 
+[node name="Healthbar" parent="." instance=ExtResource("2_6qe2b")]
+offset_top = -16.0
+offset_bottom = -16.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("20_sxlln")
+texture = ExtResource("16_45o6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

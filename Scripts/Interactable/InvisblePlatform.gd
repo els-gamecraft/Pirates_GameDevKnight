@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var showing = false
+var showing: bool = false
 
 
 func _on_area_2d_area_entered(area):

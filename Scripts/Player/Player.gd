@@ -4,22 +4,24 @@ class_name Player
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
-@export var speed := 100.0
-@export var jump_height := -400.0
-@export var attacking = false
+@export var speed: float = 100.0
+@export var jump_height: float = -400.0
+@export var attacking: bool = false
+@export var hit: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var max_health = 2
-var health = 0
-var can_take_damage = true
+var max_health: int = 2
+var health: int = 0
+var can_take_damage: bool = true
 
 func _ready():
+	GameManager.damage_taken = 0
 	health = max_health
 	GameManager.player = self
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") && !hit:
 		attack()
 	
 
@@ -80,7 +82,7 @@ func attack():
 	animation.play("Attack")
 	
 func update_animation():
-	if !attacking:
+	if !attacking && !hit:
 		if velocity.x != 0:
 			animation.play("Run")
 		else:
@@ -98,6 +100,12 @@ func drown():
 func take_damage(damage_amount: int):
 	if can_take_damage:
 		iframes()
+		
+		hit = true
+		attacking = false
+		animation.play("Hit")
+		
+		GameManager.damage_taken += 1
 		
 		health -= damage_amount
 		

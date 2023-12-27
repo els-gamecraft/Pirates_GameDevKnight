@@ -16,6 +16,18 @@ func set_values():
 		if node is Coin:
 			max_score += node.score
 			max_coins += node.coins
+			
+	var coin_trap_children = get_node("CoinHolder/TrapCoin").get_children()
+	for node in coin_trap_children:
+		if node is Coin:
+			max_score += node.score
+			max_coins += node.coins
+			
+	var coin_bonus_children = get_node("CoinHolder/coinBonus").get_children()
+	for node in coin_bonus_children:
+		if node is Coin:
+			max_score += node.score
+			max_coins += node.coins
 		
 	var saberteeth_children = get_node("SaberTeeth").get_children()
 	for node in saberteeth_children:

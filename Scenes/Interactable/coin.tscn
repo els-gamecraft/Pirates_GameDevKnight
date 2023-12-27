@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuosb44i1s0oy"]
+[gd_scene load_steps=10 format=3 uid="uid://cuosb44i1s0oy"]
 
 [ext_resource type="Script" path="res://Scripts/Interactable/coin.gd" id="1_157k4"]
 [ext_resource type="Texture2D" uid="uid://dn52e3sicx4vq" path="res://Treasure Hunters/EpisodeFour/Coin/01.png" id="1_fxdc8"]
 [ext_resource type="Texture2D" uid="uid://d2bpcpdu032qt" path="res://Treasure Hunters/EpisodeFour/Coin/04.png" id="2_5yopb"]
 [ext_resource type="Texture2D" uid="uid://b33m82baxl237" path="res://Treasure Hunters/EpisodeFour/Coin/02.png" id="4_thkft"]
 [ext_resource type="Texture2D" uid="uid://dw2yurj03x71w" path="res://Treasure Hunters/EpisodeFour/Coin/03.png" id="5_cspce"]
+[ext_resource type="AudioStream" uid="uid://iquc8qhm21dy" path="res://Audio/SFX/pickup_coin.wav" id="6_vx2ye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qycmv"]
 radius = 5.62535
@@ -48,5 +49,9 @@ shape = SubResource("CircleShape2D_qycmv")
 libraries = {
 "": SubResource("AnimationLibrary_81wiw")
 }
+
+[node name="PickupCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vx2ye")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

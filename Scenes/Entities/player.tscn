@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://kc4s26c7xi0b"]
+[gd_scene load_steps=37 format=3 uid="uid://kc4s26c7xi0b"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_h87x8"]
 [ext_resource type="Texture2D" uid="uid://dt50mg8wnph7k" path="res://Treasure Hunters/EpisodeSix/16-Attack 2/Attack 2 01.png" id="2_3iqye"]
@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://cdg8u5mruhvt1" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 01.png" id="20_immvf"]
 [ext_resource type="Texture2D" uid="uid://cia0ocs05nena" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 02.png" id="21_8ca8e"]
 [ext_resource type="Texture2D" uid="uid://dhjuxx0e13k2v" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 03.png" id="22_47dlh"]
+[ext_resource type="AudioStream" uid="uid://cstd61yc3e4xs" path="res://Audio/SFX/player_jump.wav" id="23_tpofi"]
+[ext_resource type="AudioStream" uid="uid://2y7q1mirg6yf" path="res://Audio/SFX/sword_attack.wav" id="24_m6tjg"]
+[ext_resource type="AudioStream" uid="uid://bhb7tf0ynvjvx" path="res://Audio/SFX/player_respawn.wav" id="25_y15s2"]
+[ext_resource type="AudioStream" uid="uid://bg5jl3bp3e6bp" path="res://Audio/SFX/player_hit.wav" id="26_uolvp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ec2j7"]
 radius = 9.0
@@ -198,3 +202,17 @@ shape = SubResource("CircleShape2D_n3tid")
 libraries = {
 "": SubResource("AnimationLibrary_4fg6b")
 }
+
+[node name="PlayerJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_tpofi")
+volume_db = -10.0
+
+[node name="SwordAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_m6tjg")
+volume_db = -20.0
+
+[node name="PlayerRespawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_y15s2")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_uolvp")

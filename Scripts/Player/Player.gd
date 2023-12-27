@@ -4,6 +4,11 @@ class_name Player
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+@onready var player_jump = $PlayerJump
+@onready var sword_attack = $SwordAttack
+@onready var player_respawn = $PlayerRespawn
+@onready var player_hit = $PlayerHit
+
 @export var speed: float = 100.0
 @export var jump_height: float = -400.0
 @export var attacking: bool = false
@@ -44,6 +49,7 @@ func _physics_process(delta):
 	#Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 #		animation.play("jump")
+		player_jump.play()
 		velocity.y = jump_height
 		
 	#Get the input direction and handle the movement
@@ -79,6 +85,7 @@ func attack():
 			area.get_parent().take_damage(1)
 	
 	attacking = true
+	sword_attack.play()
 	animation.play("Attack")
 	
 func update_animation():
@@ -103,6 +110,7 @@ func take_damage(damage_amount: int):
 		
 		hit = true
 		attacking = false
+		player_hit.play()
 		animation.play("Hit")
 		
 		GameManager.damage_taken += 1
@@ -120,5 +128,6 @@ func iframes():
 func die():
 	# ADD die animation!!!
 #	gravity = 980
+	player_respawn.play()
 	GameManager.respawn_player()
 

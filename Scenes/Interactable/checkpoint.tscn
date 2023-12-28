@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddyvx3qp0d1ph"]
+[gd_scene load_steps=15 format=3 uid="uid://ddyvx3qp0d1ph"]
 
 [ext_resource type="Texture2D" uid="uid://dfxcg73wl81l0" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 08.png" id="1_gf2xb"]
 [ext_resource type="Script" path="res://Scripts/Interactable/checkpoint.gd" id="1_ke0gt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bemuxdghwacdt" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 06.png" id="7_bsyru"]
 [ext_resource type="Texture2D" uid="uid://bg8gqaj3rf08" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 07.png" id="8_7mek7"]
 [ext_resource type="Texture2D" uid="uid://lgo0mmocnt8h" path="res://Treasure Hunters/EpisodeFour/Flag/Flag 09.png" id="9_i4sai"]
+[ext_resource type="AudioStream" uid="uid://1xfl62f5xdmg" path="res://Audio/SFX/checkpoint_active.wav" id="11_bivwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uquts"]
 size = Vector2(41, 93)
@@ -53,5 +54,9 @@ shape = SubResource("RectangleShape2D_uquts")
 libraries = {
 "": SubResource("AnimationLibrary_sg1iy")
 }
+
+[node name="CheckpointActive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bivwl")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

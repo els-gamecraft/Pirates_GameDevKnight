@@ -4,6 +4,8 @@ class_name Sabertooth
 var speed: float = -60.0
 var current_speed: float = 0.0
 
+@onready var sabertooth_hit = $SabertoothHit
+
 @export var score = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -63,6 +65,7 @@ func get_hit():
 	if hit:
 		current_speed = speed
 		speed = 0
+		sabertooth_hit.play()
 		can_attack = false
 	else:
 		speed = current_speed

@@ -7,5 +7,4 @@ process_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_pb800")
-volume_db = -10.0
-autoplay = true
+volume_db = -20.0

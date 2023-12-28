@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://buuim0hxe6fuq"]
+[gd_scene load_steps=8 format=3 uid="uid://buuim0hxe6fuq"]
 
 [ext_resource type="Script" path="res://Scripts/Interactable/InvisblePlatform.gd" id="1_qsomr"]
 [ext_resource type="Texture2D" uid="uid://bgtu12thttw7a" path="res://Treasure Hunters/Palm Tree Island/Sprites/Terrain/Invisible_platform.png" id="2_ekmr5"]
+[ext_resource type="AudioStream" uid="uid://cd10po5ha641q" path="res://Audio/SFX/invisible_platform_active.wav" id="3_5u0y2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6awr"]
 size = Vector2(24, 22)
@@ -52,5 +53,8 @@ shape = SubResource("RectangleShape2D_3aiy7")
 libraries = {
 "": SubResource("AnimationLibrary_27m17")
 }
+
+[node name="InvisiblePlatformActive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5u0y2")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

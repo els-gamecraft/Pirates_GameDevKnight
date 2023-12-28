@@ -5,6 +5,7 @@ extends Node
 
 var levels = []
 @onready var curr_level = $LevelHolder/Level1
+@onready var select_level = $SelectLevel
 
 var lerp_speed = 0.5
 var lerp_progress = 0.0
@@ -43,6 +44,7 @@ func _process(delta):
 			target_level = curr_level.right
 			
 	if Input.is_action_just_pressed("jump"):
+		select_level.play()
 		player.get_node("AnimationPlayer").play("Select")
 		await get_tree().create_timer(0.4).timeout
 		get_tree().change_scene_to_file("res://Scenes/WorldScenes/" + curr_level.name + ".tscn")

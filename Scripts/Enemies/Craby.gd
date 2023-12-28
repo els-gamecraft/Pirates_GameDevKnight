@@ -4,6 +4,8 @@ class_name Craby
 var speed: float = -60.0
 var current_speed: float = 0.0 
 
+@onready var craby_hit = $CrabyHit
+
 @export var score = 30
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -61,6 +63,7 @@ func get_hit():
 	if hit:
 		current_speed = speed
 		speed = 0
+		craby_hit.play()
 		can_attack = false
 	else:
 		speed = current_speed

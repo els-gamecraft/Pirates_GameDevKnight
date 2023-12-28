@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dci0prbbxnmw2"]
+[gd_scene load_steps=21 format=3 uid="uid://dci0prbbxnmw2"]
 
 [ext_resource type="Texture2D" uid="uid://cn21thtbxt5ta" path="res://Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="1_4mdmy"]
 [ext_resource type="Script" path="res://Scripts/Core/RunTimeLevel.gd" id="1_qg1jm"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bsuoom5r2ioop" path="res://Scenes/Interactable/cannon.tscn" id="10_qtlwb"]
 [ext_resource type="PackedScene" uid="uid://cuosb44i1s0oy" path="res://Scenes/Interactable/coin.tscn" id="11_iwrck"]
 [ext_resource type="Texture2D" uid="uid://bhwpccvrvtnr4" path="res://Treasure Hunters/SkyBackgrounds/Clouds/Clouds 3/2.png" id="15_rn4tm"]
+[ext_resource type="AudioStream" uid="uid://0p7kdltqmds1" path="res://Audio/Music/playful-140946.wav" id="16_dg1in"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_al7kj"]
 texture = ExtResource("1_4mdmy")
@@ -2908,8 +2909,8 @@ sources/3 = SubResource("TileSetAtlasSource_06pts")
 script = ExtResource("1_qg1jm")
 
 [node name="1" type="Sprite2D" parent="."]
-position = Vector2(1215, 400)
-scale = Vector2(-5.33989, 4.83162)
+position = Vector2(1409, 432)
+scale = Vector2(-6.01508, 4.91717)
 texture = ExtResource("2_t2t64")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2940,7 +2941,7 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_6dceq")]
-position = Vector2(2356, 309)
+position = Vector2(62, 147)
 
 [node name="Checkpoint" parent="." instance=ExtResource("3_1stse")]
 position = Vector2(46, 209)
@@ -3158,6 +3159,11 @@ position = Vector2(795, 293)
 [node name="Moon" type="Sprite2D" parent="."]
 position = Vector2(384, 137)
 texture = ExtResource("15_rn4tm")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_dg1in")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer/ResumeButton" to="UIManager" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer2/RestartButton" to="UIManager" method="_on_restart_button_pressed"]

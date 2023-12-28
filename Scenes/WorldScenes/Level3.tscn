@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d4ap451aibxcq"]
+[gd_scene load_steps=21 format=3 uid="uid://d4ap451aibxcq"]
 
 [ext_resource type="Texture2D" uid="uid://381lofvtx4fv" path="res://Treasure Hunters/SkyBackgrounds/Clouds/Clouds 2/1.png" id="1_lhre3"]
 [ext_resource type="Texture2D" uid="uid://dmwv1orfig32q" path="res://Treasure Hunters/Tiles/tilemap_packed.png" id="1_uynwl"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ddyvx3qp0d1ph" path="res://Scenes/Interactable/checkpoint.tscn" id="7_4os33"]
 [ext_resource type="Texture2D" uid="uid://b4um74q2t5mnd" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="7_q636u"]
 [ext_resource type="Texture2D" uid="uid://dj1u03qs26ffb" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="8_rml21"]
+[ext_resource type="Script" path="res://Scripts/UI/UIManager.gd" id="11_ukd12"]
+[ext_resource type="Texture2D" uid="uid://dn52e3sicx4vq" path="res://Treasure Hunters/EpisodeFour/Coin/01.png" id="12_ps00o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6txr"]
 texture = ExtResource("1_uynwl")
@@ -2644,3 +2646,153 @@ position = Vector2(186, 246)
 
 [node name="Checkpoint" parent="." instance=ExtResource("7_4os33")]
 position = Vector2(179, 258)
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("11_ukd12")
+
+[node name="CoinIcon" type="TextureRect" parent="UIManager"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 39.0
+offset_bottom = 34.0
+texture = ExtResource("12_ps00o")
+
+[node name="CoinDisplay" type="Label" parent="UIManager"]
+offset_left = 44.0
+offset_top = 5.0
+offset_right = 84.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.199219, 0.195313, 0.238281, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="PauseMenu" type="ColorRect" parent="UIManager"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -80.0
+offset_right = 60.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.286275, 0.498039, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/PauseMenu"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 150.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="WorldMapButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "World Map"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "~QUIT~"
+
+[node name="WinScreen" type="ColorRect" parent="UIManager"]
+visible = false
+custom_minimum_size = Vector2(240, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -100.0
+offset_right = 120.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.243137, 0.286275, 0.498039, 1)
+
+[node name="Label" type="Label" parent="UIManager/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -89.0
+offset_right = 44.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 1300"
+
+[node name="RestartButton" type="Button" parent="UIManager/WinScreen"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -39.0
+offset_right = 102.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "<-Restart->
+"
+
+[node name="FinishLevel" type="Button" parent="UIManager/WinScreen"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -39.0
+offset_right = -7.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "<-World Map->"
+
+[connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer/ResumeButton" to="UIManager" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer2/RestartButton" to="UIManager" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer3/WorldMapButton" to="UIManager" method="_on_world_map_button_pressed"]
+[connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer4/QuitButton" to="UIManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UIManager/WinScreen/RestartButton" to="UIManager" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="UIManager/WinScreen/FinishLevel" to="UIManager" method="_on_finish_level_pressed"]

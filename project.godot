@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/Core/GameManager.gd"
-Music="*res://Scenes/Audio/Music.tscn"
+Music="res://Scenes/Audio/Music.tscn"
 LevelData="*res://Scripts/Core/LevelData.gd"
 
 [display]

@@ -4,6 +4,8 @@ class_name Checkpoint
 @export var spawnpoint: bool = false
 @export var win_condition: bool = false
 
+@onready var checkpoint_active = $CheckpointActive
+
 var activated: bool = false
 
 func _ready():
@@ -20,4 +22,5 @@ func activate():
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player && !activated:
+		checkpoint_active.play()
 		activate()

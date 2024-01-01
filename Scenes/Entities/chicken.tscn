@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cllk73bin8e2"]
+
+[ext_resource type="Script" path="res://Scripts/Animals/Chicken.gd" id="1_if2wn"]
+[ext_resource type="Texture2D" uid="uid://dnvpeugd72hlj" path="res://Treasure Hunters/Tiles/farmingTilesheetComplete.png" id="2_ole0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s3ts"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0re8"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68vu8"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs4no"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kobrd"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmbw"]
+atlas = ExtResource("2_ole0g")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xax0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s3ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0re8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68vu8")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kobrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbmbw")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qesex"]
+radius = 6.0
+
+[node name="Chicken" type="CharacterBody2D"]
+script = ExtResource("1_if2wn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7xax0")
+animation = &"walking"
+autoplay = "walking"
+frame_progress = 0.412838
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_qesex")
+
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]

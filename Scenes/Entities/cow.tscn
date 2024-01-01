@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://b15xibhew6ptf"]
+
+[ext_resource type="Script" path="res://Scripts/Animals/Cow.gd" id="1_38pd7"]
+[ext_resource type="Texture2D" uid="uid://b7lr47liwcqo2" path="res://Treasure Hunters/Animals/PixelFarm_Cow-Sheet.png" id="2_v2fsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_046yf"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl4eq"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbvk2"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40uu5"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i030k"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pahe"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xkvn"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o52d"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mda3s"]
+atlas = ExtResource("2_v2fsq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a2r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_046yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl4eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbvk2")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40uu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i030k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pahe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xkvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o52d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mda3s")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m51ub"]
+size = Vector2(26, 19)
+
+[node name="Cow" type="CharacterBody2D"]
+script = ExtResource("1_38pd7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1a2r2")
+animation = &"eating"
+autoplay = "walking"
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_m51ub")
+
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]

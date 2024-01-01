@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://epwhbvq4lhhk"]
+
+[ext_resource type="Script" path="res://Scripts/Animals/baby_cow.gd" id="1_mjxac"]
+[ext_resource type="Texture2D" uid="uid://b10jnc8yyq13m" path="res://Treasure Hunters/Animals/PixelFarm_BabyCow-Sheet.png" id="2_0e6vv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxdnj"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1dc0"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws08b"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chvri"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er7hq"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnmv5"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwc7n"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yod0"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ql5t"]
+atlas = ExtResource("2_0e6vv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kn18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxdnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1dc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws08b")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chvri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er7hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnmv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwc7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yod0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ql5t")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlm2r"]
+size = Vector2(18, 16)
+
+[node name="BabyCow" type="CharacterBody2D"]
+script = ExtResource("1_mjxac")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4kn18")
+animation = &"walking"
+autoplay = "walking"
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 8)
+shape = SubResource("RectangleShape2D_nlm2r")
+
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]

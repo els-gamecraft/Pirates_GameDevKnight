@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq01deyunl5l0"]
+
+[ext_resource type="Script" path="res://Scripts/Animals/moca_cow.gd" id="1_ucavs"]
+[ext_resource type="Texture2D" uid="uid://bb7j68k4h8dm6" path="res://Treasure Hunters/Animals/Free Cow Sprites.png" id="2_5d3rn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dgvy"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfy"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg6di"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qij28"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgij4"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keynw"]
+atlas = ExtResource("2_5d3rn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isjja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dgvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsxfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg6di")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qij28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgij4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keynw")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sr70k"]
+radius = 8.0
+height = 24.0
+
+[node name="MocaCow" type="CharacterBody2D"]
+script = ExtResource("1_ucavs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_isjja")
+animation = &"eating"
+autoplay = "walking"
+frame = 2
+frame_progress = 0.754466
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+rotation = -1.57041
+shape = SubResource("CapsuleShape2D_sr70k")
+
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]

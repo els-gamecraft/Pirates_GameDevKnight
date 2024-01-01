@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cr1we1y3kxnou"]
+[gd_scene load_steps=25 format=3 uid="uid://cr1we1y3kxnou"]
 
 [ext_resource type="Texture2D" uid="uid://b2vxgwmpij6t7" path="res://Treasure Hunters/EpisodeFifteen/BigWorldMap.png" id="1_4n2un"]
 [ext_resource type="Script" path="res://Scripts/Core/WorldMap.gd" id="1_34mgw"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://lgehhvtddq2g" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 01.png" id="13_2qeeb"]
 [ext_resource type="Texture2D" uid="uid://cl8fr5ghwkyvg" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 02.png" id="14_8ehew"]
 [ext_resource type="AudioStream" uid="uid://dfr6ljkgbfhvu" path="res://Audio/SFX/select_level.wav" id="19_ddd3a"]
+[ext_resource type="AudioStream" uid="uid://buaebdi3gyk0m" path="res://Audio/Music/waterfall-ambient-chill-music-and-nature-sounds-3627.mp3" id="20_p7ist"]
 
 [sub_resource type="Animation" id="Animation_tf5er"]
 resource_name = "Idle"
@@ -120,7 +121,7 @@ texture = ExtResource("3_4l5iy")
 [node name="Level3" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("left")]
 position = Vector2(-104, 108)
 script = ExtResource("2_lm638")
-left = NodePath(".")
+left = NodePath("../Level2")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level3"]
 scale = Vector2(3, 3)
@@ -166,3 +167,7 @@ libraries = {
 
 [node name="SelectLevel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_ddd3a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_p7ist")
+autoplay = true

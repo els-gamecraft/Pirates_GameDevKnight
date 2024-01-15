@@ -5,8 +5,13 @@ class_name RunTimeLevel
 
 var max_score = 0
 var max_coins = 0
+var max_enemies = 0
 
 func _ready():
+	GameManager.coins = 0
+	GameManager.score = 0
+	GameManager.damage_taken = 0
+	GameManager.enemies_beaten = 0
 	GameManager.level_beaten.connect(beat_level)
 	set_values()
 
@@ -33,16 +38,21 @@ func set_values():
 	for node in saberteeth_children:
 		if node is Sabertooth:
 			max_score += node.score
+			max_enemies += 1
 	
 	var craby_children = get_node("Crabies").get_children()
 	for node in craby_children:
 		if node is Craby:
 			max_score += node.score
+			max_enemies += 1
 			
 	var cannon_children = get_node("Cannons").get_children()
 	for node in cannon_children:
 		if node is cannon:
 			max_score += node.score
+			max_enemies += 1
+			
+	
 	
 			
 func beat_level():
@@ -54,5 +64,7 @@ func beat_level():
 							max_score, 
 							GameManager.coins, 
 							max_coins, 
+							GameManager.enemies_beaten,
+							max_enemies,
 							GameManager.damage_taken,
 							 true)	

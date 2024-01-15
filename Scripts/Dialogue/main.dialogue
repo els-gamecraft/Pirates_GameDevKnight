@@ -1,0 +1,36 @@
+~ start
+
+if global.given_slimes_item == false
+	Slime: [[Hi|Hello|Howdy]]... [[how may i help?|how can i help you?|what's going on?]]
+	- Who are you?
+		Slime: I'm just jello named Slime, [[nothing else... hehe|nothing more... LOL]]
+		- I think i [[have something for you...|have you're belonging...]]
+			Slime: Oh really!?
+			- yes, found someting with some jello in it!
+				if global.found_slimes_item == true:
+					Slime: Ahh. I must have droped it by accident, [[thank you!|thanks!|thank you so much!]]
+					global.given_slimes_item == true
+					=> END
+			- nope, i lied [[Hehehe|Hahaha|Hihihi]]
+				Slime: [[Arghh!!|What, you LIED!!??]]
+				 => END
+			- [[Farewel!|Goodbye!|Bye!]]
+			
+			
+	- I think i [[have something for you...|have you're belonging...]]
+		Slime: Oh really!?
+		- yes, found someting with some jello in it!
+			if global.found_slimes_item == true:
+				Slime: Ahh. I must have droped it by accident, [[thank you!|thanks!|thank you so much!]]
+				global.given_slimes_item == true
+				=> END
+		- nope, i lied [[Hehehe|Hahaha|Hihihi]]
+			Slime: [[Arghh!!|What, you LIED!!??]] => END
+		- [[Farewel!|Goodbye!|Bye!]]
+
+else:
+	Slime: [[Hi|Hello|Howdy]], thank you so much for finding my magic carpet!
+	Slime: I don't know what i would have done without you!
+	=> END
+
+=> END

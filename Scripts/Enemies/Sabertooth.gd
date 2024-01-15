@@ -73,6 +73,7 @@ func get_hit():
 		$AnimationPlayer.play("Run")
 
 func die():
+	GameManager.enemies_beaten += 1
 	GameManager.score += score
 	dead = true
 	speed = 0

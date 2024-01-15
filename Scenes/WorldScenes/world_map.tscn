@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cr1we1y3kxnou"]
+[gd_scene load_steps=31 format=3 uid="uid://cr1we1y3kxnou"]
 
 [ext_resource type="Texture2D" uid="uid://b2vxgwmpij6t7" path="res://Treasure Hunters/EpisodeFifteen/BigWorldMap.png" id="1_4n2un"]
 [ext_resource type="Script" path="res://Scripts/Core/WorldMap.gd" id="1_34mgw"]
@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://srctfqa7xeex" path="res://Treasure Hunters/EpisodeFifteen/locked.png" id="3_4l5iy"]
 [ext_resource type="Texture2D" uid="uid://c3fak7cxu04nc" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="3_kfh6h"]
 [ext_resource type="Texture2D" uid="uid://b38u03ttl12w6" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="4_5foo2"]
+[ext_resource type="Texture2D" uid="uid://cbbwq1rvnp8im" path="res://Treasure Hunters/EpisodeSixteen/Coin.png" id="5_4laru"]
 [ext_resource type="Texture2D" uid="uid://dofv6ip252crs" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" id="5_e6w2b"]
 [ext_resource type="Texture2D" uid="uid://dd6b6occxfqw5" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" id="6_7ygw3"]
+[ext_resource type="Texture2D" uid="uid://drst04jmf0hmv" path="res://Treasure Hunters/EpisodeSixteen/Skull.png" id="6_yxwu1"]
 [ext_resource type="Texture2D" uid="uid://xapye8tj5lcu" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="7_t6xwt"]
+[ext_resource type="Texture2D" uid="uid://bpjrl6tgub36n" path="res://Treasure Hunters/EpisodeSixteen/Health.png" id="7_y8gu7"]
 [ext_resource type="Texture2D" uid="uid://c2ic16hsma0t4" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="8_ka1q8"]
 [ext_resource type="Texture2D" uid="uid://bnph71e6e5wvk" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="9_lfi3i"]
 [ext_resource type="Texture2D" uid="uid://c367k4bhd02f5" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="10_kxwc2"]
@@ -20,6 +23,163 @@
 [ext_resource type="Texture2D" uid="uid://cl8fr5ghwkyvg" path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 02.png" id="14_8ehew"]
 [ext_resource type="AudioStream" uid="uid://dfr6ljkgbfhvu" path="res://Audio/SFX/select_level.wav" id="19_ddd3a"]
 [ext_resource type="AudioStream" uid="uid://buaebdi3gyk0m" path="res://Audio/Music/waterfall-ambient-chill-music-and-nature-sounds-3627.mp3" id="20_p7ist"]
+
+[sub_resource type="Animation" id="Animation_ytn1x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, -39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkullSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -56)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkullSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, -39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HealthSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s0cuq"]
+resource_name = "Show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-36, -39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkullSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, -56)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkullSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(36, -39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HealthSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc6wr"]
+_data = {
+"RESET": SubResource("Animation_ytn1x"),
+"Show": SubResource("Animation_s0cuq")
+}
 
 [sub_resource type="Animation" id="Animation_tf5er"]
 resource_name = "Idle"
@@ -108,6 +268,29 @@ down = NodePath("../Level2")
 scale = Vector2(3, 3)
 texture = ExtResource("3_4l5iy")
 
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level1"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(-36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("5_4laru")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(3, -56)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_yxwu1")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level1/StatDisplay"]
+position = Vector2(36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("7_y8gu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level1/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_qc6wr")
+}
+
 [node name="Level2" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("up", "right")]
 position = Vector2(-200, 108)
 script = ExtResource("2_lm638")
@@ -118,6 +301,29 @@ right = NodePath("../Level3")
 scale = Vector2(3, 3)
 texture = ExtResource("3_4l5iy")
 
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level2"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(-36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("5_4laru")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(3, -56)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_yxwu1")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level2/StatDisplay"]
+position = Vector2(36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("7_y8gu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level2/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_qc6wr")
+}
+
 [node name="Level3" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("left")]
 position = Vector2(-104, 108)
 script = ExtResource("2_lm638")
@@ -126,6 +332,29 @@ left = NodePath("../Level2")
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level3"]
 scale = Vector2(3, 3)
 texture = ExtResource("3_4l5iy")
+
+[node name="StatDisplay" type="Node2D" parent="LevelHolder/Level3"]
+visible = false
+
+[node name="CoinSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(-36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("5_4laru")
+
+[node name="SkullSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(3, -56)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_yxwu1")
+
+[node name="HealthSprite" type="Sprite2D" parent="LevelHolder/Level3/StatDisplay"]
+position = Vector2(36, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("7_y8gu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelHolder/Level3/StatDisplay"]
+libraries = {
+"": SubResource("AnimationLibrary_qc6wr")
+}
 
 [node name="Level4" type="Node2D" parent="LevelHolder"]
 position = Vector2(-104, 11)
